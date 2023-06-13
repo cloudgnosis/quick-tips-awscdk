@@ -14,8 +14,8 @@ def main():
     stack1 = cdk.Stack(app, "stack1", env=env)
     stack2 = cdk.Stack(app, "stack2", stack_name=f"{prefix}-stack", env=env)
 
-    queue1 = sqs.Queue(stack1, "queue", visibility_timeout=cdk.Duration.seconds(300))
-    queue2 = sqs.Queue(stack2, "queue", visibility_timeout=cdk.Duration.seconds(300))
+    sqs.Queue(stack1, "queue", visibility_timeout=cdk.Duration.seconds(300))
+    sqs.Queue(stack2, "queue", visibility_timeout=cdk.Duration.seconds(300))
 
     app.synth()
 
